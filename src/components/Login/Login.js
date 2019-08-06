@@ -1,34 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+import useAuth from '../../utils/auth-client';
 
 import View from './View';
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({
-    email: '',
-    password: ''
-  });
-
-  const handleCredentials = (id, e) => {
-    e.persist();
-
-    setCredentials(prevCredentials => ({
-      ...prevCredentials,
-      [id]: e.target.value
-    }));
-  };
-
+  const { login } = useAuth();
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(credentials);
+    const { email, password } = e.target.elements;
+
+    login({
+      email: email.value,
+      password: password.value
+    });
   };
 
-  return (
-    <View
-      credentials={credentials}
-      setCredentials={handleCredentials}
-      handleSubmit={handleSubmit}
-    />
-  );
+  return <View handleSubmit={handleSubmit} />;
 };
 
 export default Login;

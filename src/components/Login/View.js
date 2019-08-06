@@ -24,11 +24,7 @@ const useStyles = makeStyles(({ spacing }) => ({
   }
 }));
 
-const View = ({
-  credentials: { email, password },
-  setCredentials,
-  handleSubmit
-}) => {
+const View = ({ handleSubmit }) => {
   const classes = useStyles();
   return (
     <Container className={classes.container} component="main" maxWidth="xs">
@@ -42,8 +38,6 @@ const View = ({
           name="email"
           variant="outlined"
           margin="normal"
-          value={email}
-          onChange={e => setCredentials('email', e)}
           autoFocus
           fullWidth
           required
@@ -55,8 +49,6 @@ const View = ({
           variant="outlined"
           margin="normal"
           type="password"
-          value={password}
-          onChange={e => setCredentials('password', e)}
           fullWidth
           required
         />

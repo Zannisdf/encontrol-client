@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
 import View from './View';
+import NoMatch from './NoMatch';
 
-const Dashboard = ({ render = <div>loremo</div> }) => {
+const Dashboard = ({ render = <NoMatch /> }) => {
   const [open, setOpen] = useState(false);
 
   function handleDrawerOpen() {

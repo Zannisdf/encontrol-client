@@ -36,7 +36,7 @@ const useStyles = makeStyles(({ spacing, transitions, mixins }) => ({
   }
 }));
 
-const View = ({ open, handleDrawerOpen, handleDrawerClose, render }) => {
+const View = ({ open, handleDrawerOpen, handleDrawerClose, children }) => {
   const classes = useStyles();
 
   return (
@@ -59,7 +59,7 @@ const View = ({ open, handleDrawerOpen, handleDrawerClose, render }) => {
           contentShift: classes.contentShift,
           drawerHeader: classes.drawerHeader
         }}
-        render={render}
+        children={children}
       />
     </div>
   );

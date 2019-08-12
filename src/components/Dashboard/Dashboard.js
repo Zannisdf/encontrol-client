@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import View from './View';
 import NoMatch from './NoMatch';
 
-const Dashboard = ({ render = <NoMatch /> }) => {
+const Dashboard = ({ children }) => {
   const [open, setOpen] = useState(false);
 
   function handleDrawerOpen() {
@@ -19,7 +19,7 @@ const Dashboard = ({ render = <NoMatch /> }) => {
       open={open}
       handleDrawerOpen={handleDrawerOpen}
       handleDrawerClose={handleDrawerClose}
-      render={render}
+      children={children}
     />
   );
 };

@@ -3,14 +3,14 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Login from '../Login';
-import Dashboard from '../Dashboard';
+import AuthenticatedApp from '../AuthenticatedApp';
 
 const App = () => (
   <BrowserRouter>
     <CssBaseline />
     <Switch>
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/" component={Login} />
+      <Route exact path="/login" component={Login} />
+      <Route path="/" component={AuthenticatedApp} />
     </Switch>
   </BrowserRouter>
 );

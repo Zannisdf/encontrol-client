@@ -55,7 +55,12 @@ const localization = {
     emptyDataSourceMessage: 'Sin resultados',
     addTooltip: 'Agregar',
     deleteTooltip: 'Eliminar',
-    editTooltip: 'Editar'
+    editTooltip: 'Editar',
+    editRow: {
+      deleteText: '¿Desea eliminar este registro?',
+      cancelTooltip: 'Cancelar',
+      saveTooltip: 'Aceptar'
+    }
   },
   header: {
     actions: 'Acciones'

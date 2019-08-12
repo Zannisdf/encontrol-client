@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import View from './View';
-import NoMatch from './NoMatch';
 
 const Dashboard = ({ children }) => {
   const [open, setOpen] = useState(false);

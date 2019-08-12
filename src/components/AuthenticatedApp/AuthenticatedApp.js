@@ -1,12 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import Customers from '../Customers/Customers';
 import Dashboard from '../Dashboard';
 import NoMatch from '../Dashboard/NoMatch';
 
-const Placeholder = () => <div>lorem</div>;
-
-const routes = [{ path: '/', component: Placeholder }];
+const routes = [{ path: '/', component: Customers }];
 
 const AuthenticatedApp = () => (
   <Dashboard>

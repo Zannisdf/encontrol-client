@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { Redirect } from 'react-router-dom';
 import Container from './Container';
 import Drawer from './Drawer';
 import Navbar from './Navbar';
@@ -36,32 +37,46 @@ const useStyles = makeStyles(({ spacing, transitions, mixins }) => ({
   }
 }));
 
-const View = ({ open, handleDrawerOpen, handleDrawerClose, children }) => {
+const View = ({
+  user,
+  open,
+  handleDrawerOpen,
+  handleDrawerClose,
+  logout,
+  children
+}) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Navbar
-        drawerWidth={drawerWidth}
-        drawerOpen={open}
-        handleDrawerOpen={handleDrawerOpen}
-      />
-      <Drawer
-        drawerWidth={drawerWidth}
-        open={open}
-        handleDrawerClose={handleDrawerClose}
-        drawerHeader={classes.drawerHeader}
-      />
-      <Container
-        open={open}
-        styles={{
-          content: classes.content,
-          contentShift: classes.contentShift,
-          drawerHeader: classes.drawerHeader
-        }}
-        children={children}
-      />
-    </div>
+    <>
+      {!user ? (
+        <Redirect to="/login" />
+      ) : (
+        <div className={classes.root}>
+          <Navbar
+            drawerWidth={drawerWidth}
+            drawerOpen={open}
+            handleDrawerOpen={handleDrawerOpen}
+            logout={logout}
+          />
+          <Drawer
+            drawerWidth={drawerWidth}
+            open={open}
+            handleDrawerClose={handleDrawerClose}
+            drawerHeader={classes.drawerHeader}
+          />
+          <Container
+            open={open}
+            styles={{
+              content: classes.content,
+              contentShift: classes.contentShift,
+              drawerHeader: classes.drawerHeader
+            }}
+            children={children}
+          />
+        </div>
+      )}
+    </>
   );
 };
 

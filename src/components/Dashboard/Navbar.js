@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 
+import { withRouter } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import AppBar from '@material-ui/core/AppBar';
@@ -40,7 +42,13 @@ const useStyles = makeStyles(({ spacing, transitions }) => ({
   }
 }));
 
-const Navbar = ({ drawerWidth, drawerOpen, handleDrawerOpen }) => {
+const Navbar = ({
+  drawerWidth,
+  drawerOpen,
+  handleDrawerOpen,
+  logout,
+  history
+}) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const classes = useStyles({ drawerWidth });
   const open = Boolean(anchorEl);
@@ -52,6 +60,13 @@ const Navbar = ({ drawerWidth, drawerOpen, handleDrawerOpen }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    handleClose();
+    logout();
+    history.push('/login');
+  };
+
   return (
     <AppBar
       position="fixed"
@@ -91,7 +106,7 @@ const Navbar = ({ drawerWidth, drawerOpen, handleDrawerOpen }) => {
             open={open}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Cerrar sesión</MenuItem>
+            <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
           </Menu>
         </div>
       </Toolbar>
@@ -99,4 +114,4 @@ const Navbar = ({ drawerWidth, drawerOpen, handleDrawerOpen }) => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

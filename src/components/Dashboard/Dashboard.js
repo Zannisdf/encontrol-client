@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import useAuth from '../../utils/auth-client';
+import useUser from '../../utils/user-client';
 
 import View from './View';
-import useUser from '../../utils/user-client';
 
 const Dashboard = ({ children }) => {
   const [open, setOpen] = useState(false);

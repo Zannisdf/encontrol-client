@@ -19,6 +19,7 @@ const Login = ({ history }) => {
       password: password.value
     });
 
+    // Redirect only if login is successful.
     err ? setError(err) : history.push('/');
   };
 

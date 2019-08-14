@@ -1,8 +1,11 @@
 const login = ({ email, password }) => {
+  // API calls should be placed here.
   const mockEmail = 'test@goplaceit.com';
   const mockPassword = '123456';
   let error = null;
 
+  // Create an error if the user isn't authenticated,
+  // else, handle store the session.
   if (email !== mockEmail || password !== mockPassword) {
     error = new Error('Usuario o contraseña inválidos');
   } else {

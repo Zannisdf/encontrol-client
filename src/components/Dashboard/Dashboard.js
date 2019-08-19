@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 
-import useAuth from '../../utils/auth-client';
-import useUser from '../../utils/user-client';
-
 import View from './View';
 
-const Dashboard = ({ children }) => {
+const Dashboard = ({ children, user, logout }) => {
   const [open, setOpen] = useState(false);
-  const { logout } = useAuth();
-  const { user } = useUser();
 
   function handleDrawerOpen() {
     setOpen(true);

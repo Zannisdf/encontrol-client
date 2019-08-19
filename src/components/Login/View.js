@@ -24,7 +24,12 @@ const View = ({ user, handleSubmit, error }) => {
       {user ? (
         <Redirect to="/" />
       ) : (
-        <Container className={classes.container} component="main" maxWidth="xs">
+        <Container
+          data-testid="unauth-app"
+          className={classes.container}
+          component="main"
+          maxWidth="xs"
+        >
           <Typography variant="h5" component="h1">
             Iniciar Sesión
           </Typography>

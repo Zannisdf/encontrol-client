@@ -7,15 +7,20 @@ import NoMatch from '../Dashboard/NoMatch';
 
 const routes = [{ path: '/', component: Customers }];
 
-const AuthenticatedApp = () => (
-  <Dashboard>
-    <Switch>
-      {routes.map(({ path, component: View }) => (
-        <Route key={path} exact path={path} component={View} />
-      ))}
-      <Route component={NoMatch} />
-    </Switch>
-  </Dashboard>
-);
+const AuthenticatedApp = ({ logout, useUser }) => {
+  const { user } = useUser();
+  return (
+    <div data-testid="auth-app">
+      <Dashboard logout={logout} user={user}>
+        <Switch>
+          {routes.map(({ path, component: View }) => (
+            <Route key={path} exact path={path} component={View} />
+          ))}
+          <Route component={NoMatch} />
+        </Switch>
+      </Dashboard>
+    </div>
+  );
+};
 
 export default AuthenticatedApp;

@@ -88,7 +88,11 @@ const Navbar = ({
           Inicio
         </Typography>
         <div>
-          <IconButton color="inherit" onClick={handleMenu}>
+          <IconButton
+            data-testid="menu-toggle"
+            color="inherit"
+            onClick={handleMenu}
+          >
             <AccountCircle />
           </IconButton>
           <Menu
@@ -106,7 +110,9 @@ const Navbar = ({
             open={open}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
+            <MenuItem data-testid="logout" onClick={handleLogout}>
+              Cerrar sesión
+            </MenuItem>
           </Menu>
         </div>
       </Toolbar>

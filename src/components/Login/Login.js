@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 
-import useAuth from '../../utils/auth-client';
-import useUser from '../../utils/user-client';
-
 import View from './View';
 
-const Login = ({ history }) => {
+const Login = ({ history, login, useUser }) => {
   const [error, setError] = useState(null);
   const { user } = useUser();
-  const { login } = useAuth();
 
   const handleSubmit = e => {
     e.preventDefault();

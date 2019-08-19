@@ -38,6 +38,7 @@ const Alert = ({ error }) => {
 
   return (
     <Snackbar
+      data-testid="loginReject"
       anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'left'

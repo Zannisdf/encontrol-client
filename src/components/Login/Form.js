@@ -20,18 +20,25 @@ const Form = ({ handleSubmit }) => {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} onSubmit={e => handleSubmit(e)}>
+    <form
+      data-testid="loginForm"
+      className={classes.root}
+      onSubmit={e => handleSubmit(e)}
+    >
       <TextField
+        data-testid="email"
         id="email"
         label="Correo electrónico"
         name="email"
         variant="outlined"
         margin="normal"
+        type="email"
         autoFocus
         fullWidth
         required
       />
       <TextField
+        data-testid="password"
         id="password"
         label="Contraseña"
         name="password"
@@ -48,6 +55,7 @@ const Form = ({ handleSubmit }) => {
         control={<Checkbox value="recordar" color="primary" />}
       />
       <Button
+        data-testid="loginBtn"
         className={classes.submit}
         variant="contained"
         color="primary"

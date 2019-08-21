@@ -29,7 +29,8 @@ const View = ({ isLoading, columns, data, setData }) => (
     {...baseConfig}
     options={{
       ...baseConfig.options,
-      search: false
+      search: false,
+      padding: 'dense'
     }}
   />
 );

@@ -44,7 +44,8 @@ const Cart = () => (
     {...baseConfig}
     options={{
       ...baseConfig.options,
-      search: false
+      search: false,
+      padding: 'dense'
     }}
   />
 );

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Customers from '../Customers/Customers';
 import Dashboard from '../Dashboard';
 import NoMatch from '../Dashboard/NoMatch';
+import SearchProducts from '../SearchProducts';
 
-const routes = [{ path: '/', component: Customers }];
+const routes = [{ path: '/', component: SearchProducts }];
 
 const AuthenticatedApp = ({ logout, useUser }) => {
   const { user } = useUser();

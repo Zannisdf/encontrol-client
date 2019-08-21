@@ -40,14 +40,10 @@ const icons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-const style = {
-  padding: '24px 16px'
-};
-
 const options = {
   actionsColumnIndex: -1,
-  pageSize: 10,
-  pageSizeOptions: [10, 20, 40]
+  pageSize: 5,
+  pageSizeOptions: [5, 10, 20]
 };
 
 const localization = {
@@ -90,8 +86,7 @@ const localization = {
 const baseConfig = {
   icons,
   options,
-  localization,
-  style
+  localization
 };
 
 export default baseConfig;

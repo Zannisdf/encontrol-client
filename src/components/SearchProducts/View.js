@@ -26,67 +26,31 @@ const useStyles = makeStyles(({ spacing }) => ({
   }
 }));
 
-const View = ({
-  barcode,
-  name,
-  category,
-  handleBarcodeChange,
-  handleNameChange,
-  handleCategoryChange,
-  handleSubmit
-}) => {
+const View = ({ productId, handleInputChange, handleSubmit }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
       <Typography variant="h6">Buscar productos</Typography>
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={2} className={classes.grid}>
-          <Grid item xs={3}>
-            <TextField
-              id="outlined-password-input"
-              label="Código de barra"
-              className={classes.input}
-              type="text"
-              margin="normal"
-              value={barcode}
-              onChange={handleBarcodeChange}
-              autoFocus
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <TextField
-              id="outlined-password-input"
-              label="Nombre"
-              className={classes.input}
-              type="text"
-              margin="normal"
-              value={name}
-              onChange={handleNameChange}
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <TextField
-              id="outlined-password-input"
-              label="Categoría"
-              className={classes.input}
-              type="text"
-              margin="normal"
-              value={category}
-              onChange={handleCategoryChange}
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className={classes.button}
-            >
-              <SearchIcon />
-              <span className={classes.buttonText}>Buscar</span>
-            </Button>
-          </Grid>
-        </Grid>
+        <TextField
+          id="productIdentifier"
+          label="Código de barra o nombre"
+          className={classes.input}
+          type="text"
+          margin="normal"
+          value={productId}
+          onChange={handleInputChange}
+          autoFocus
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className={classes.button}
+        >
+          <SearchIcon />
+          <span className={classes.buttonText}>Buscar</span>
+        </Button>
       </form>
     </Paper>
   );

@@ -3,20 +3,12 @@ import React, { useState } from 'react';
 import View from './View';
 
 const SearchProducts = () => {
-  const [barcode, setBarcode] = useState('');
-  const [name, setName] = useState('');
-  const [category, setCategory] = useState('');
+  const [productId, setProductId] = useState('');
 
-  const handleInputChange = (e, fn) => {
+  const handleInputChange = e => {
     e.persist();
-    fn(e.target.value);
+    setProductId(e.target.value);
   };
-
-  const handleBarcodeChange = e => handleInputChange(e, setBarcode);
-
-  const handleNameChange = e => handleInputChange(e, setName);
-
-  const handleCategoryChange = e => handleInputChange(e, setCategory);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,12 +18,8 @@ const SearchProducts = () => {
 
   return (
     <View
-      barcode={barcode}
-      name={name}
-      category={category}
-      handleBarcodeChange={handleBarcodeChange}
-      handleNameChange={handleNameChange}
-      handleCategoryChange={handleCategoryChange}
+      productId={productId}
+      handleInputChange={handleInputChange}
       handleSubmit={handleSubmit}
     />
   );

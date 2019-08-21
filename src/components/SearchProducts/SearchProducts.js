@@ -18,6 +18,12 @@ const SearchProducts = () => {
 
   const handleCategoryChange = e => handleInputChange(e, setCategory);
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('Searching item...');
+    // Submit to API
+  };
+
   return (
     <View
       barcode={barcode}
@@ -26,6 +32,7 @@ const SearchProducts = () => {
       handleBarcodeChange={handleBarcodeChange}
       handleNameChange={handleNameChange}
       handleCategoryChange={handleCategoryChange}
+      handleSubmit={handleSubmit}
     />
   );
 };

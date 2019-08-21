@@ -29,13 +29,14 @@ const View = ({
   category,
   handleBarcodeChange,
   handleNameChange,
-  handleCategoryChange
+  handleCategoryChange,
+  handleSubmit
 }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
       <Typography variant="h5">Buscar productos</Typography>
-      <form>
+      <form onSubmit={handleSubmit}>
         <TextField
           id="outlined-password-input"
           label="Código de barra"
@@ -67,7 +68,12 @@ const View = ({
           value={category}
           onChange={handleCategoryChange}
         />
-        <Button variant="contained" color="primary" className={classes.button}>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className={classes.button}
+        >
           <SearchIcon />
           <span className={classes.buttonText}>Buscar</span>
         </Button>

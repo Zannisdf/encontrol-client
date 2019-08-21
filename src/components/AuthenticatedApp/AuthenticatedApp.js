@@ -3,9 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 
 import Dashboard from '../Dashboard';
 import NoMatch from '../Dashboard/NoMatch';
-import Products from '../Products';
+import Cart from '../Cart';
 
-const routes = [{ path: '/', component: Products }];
+const routes = [{ path: '/', component: Cart }];
 
 const AuthenticatedApp = ({ logout, useUser }) => {
   const { user } = useUser();

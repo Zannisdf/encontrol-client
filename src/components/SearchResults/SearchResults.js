@@ -13,14 +13,21 @@ const useStyles = makeStyles(({ spacing }) => ({
   }
 }));
 
-const SearchResults = ({ products = [] }) => {
+const SearchResults = ({ addToCart, products }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
       <List>
         {products.length !== 0 ? (
           products.map(({ id, name, stock, price }) => (
-            <Product key={id} id={id} name={name} stock={stock} price={price} />
+            <Product
+              key={id}
+              addToCart={addToCart}
+              id={id}
+              name={name}
+              price={price}
+              stock={stock}
+            />
           ))
         ) : (
           <ListItem>

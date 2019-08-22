@@ -13,16 +13,21 @@ const useStyles = makeStyles({
   }
 });
 
-const Product = ({ id, name, price, stock }) => {
+const Product = ({ addToCart, id, name, price, stock }) => {
   const classes = useStyles();
   const available = stock !== 0;
 
   const handleClick = () => {
-    console.log(id);
+    addToCart({ id, name, price, stock });
   };
 
   return (
-    <ListItem button onClick={handleClick} disabled={!available}>
+    <ListItem
+      button
+      onClick={handleClick}
+      disabled={!available}
+      data-testid="search-results-product"
+    >
       <ListItemText
         primary={
           <div className={classes.listTitle}>

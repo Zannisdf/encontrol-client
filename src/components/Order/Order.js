@@ -4,6 +4,7 @@ import Cart from '../Cart';
 import Grid from '@material-ui/core/Grid';
 import Products from '../Products';
 import SearchProducts from '../SearchProducts';
+import SearchResults from '../SearchResults/SearchResults';
 
 const Order = () => {
   return (
@@ -13,7 +14,12 @@ const Order = () => {
       </Grid>
       <Grid item xs={4}>
         <SearchProducts />
-        <Products />
+        <SearchResults
+          products={[
+            { id: '1', name: 'Copla bronce 3/4', price: '$900', stock: 20 },
+            { id: '3', name: 'Copla PVC bronce 3/4', price: '250', stock: 0 }
+          ]}
+        />
       </Grid>
     </Grid>
   );

@@ -7,30 +7,33 @@ import MaterialTable from 'material-table';
 const columns = [
   { title: 'ID', field: 'id', editable: 'never' },
   { title: 'Nombre', field: 'name', editable: 'never' },
-  { title: 'Precio', field: 'price', editable: 'never' },
+  {
+    title: 'Precio',
+    field: 'price',
+    editable: 'never'
+  },
   { title: 'Cantidad', field: 'quantity', editable: 'never' },
-  { title: 'Sub-total', field: 'subTotal', editable: 'never' }
-];
-
-const data = [
-  { id: '1', name: 'Copla', price: '9.990', quantity: '1', subTotal: '9.990' },
-  { name: 'Total', subTotal: '9.990' }
+  {
+    title: 'Sub-total',
+    field: 'subTotal',
+    editable: 'never'
+  }
 ];
 
 const setData = data => console.log(data);
 
-const Cart = () => (
+const Cart = ({ products }) => (
   <MaterialTable
     title="Carro"
     isLoading={false}
     columns={columns}
-    data={data}
+    data={products}
     editable={{
       onRowDelete: toBeDeleted =>
         new Promise((resolve, reject) => {
           setTimeout(() => {
             {
-              const currentData = [...data];
+              const currentData = [...products];
               const index = currentData.indexOf(toBeDeleted);
               currentData.splice(index, 1);
 

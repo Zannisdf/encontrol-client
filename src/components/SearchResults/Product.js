@@ -21,6 +21,8 @@ const Product = ({ addToCart, id, name, price, stock }) => {
     addToCart({ id, name, price, stock });
   };
 
+  const formattedPrice = new Intl.NumberFormat('es-CL').format(price);
+
   return (
     <ListItem
       button
@@ -32,7 +34,7 @@ const Product = ({ addToCart, id, name, price, stock }) => {
         primary={
           <div className={classes.listTitle}>
             <span>{name}</span>
-            <span>{price}</span>
+            <span>$ {formattedPrice}</span>
           </div>
         }
         secondary={available ? `Stock: ${stock}` : 'Sin Stock'}
@@ -49,7 +51,7 @@ const Product = ({ addToCart, id, name, price, stock }) => {
 Product.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   stock: PropTypes.number.isRequired
 };
 
